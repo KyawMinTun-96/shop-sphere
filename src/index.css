@@ -1,13 +1,172 @@
-body {
+/* Reset CSS */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #e3e6e6;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: bold;
+}
+
+
+/* Main Color Code 
+   Primary Color: #ffa605;
+   Secondary Color: #fff;
+   Thirdy Color: #e3e6e6;
+   Other Color: #151515;
+*/
+
+
+
+
+
+/* Common CSS */
+.css-1hq7t8h-MuiTypography-root {
+  display: flex !important;
+}
+
+
+
+
+
+
+
+
+
+/* Navbar CSS */
+.navbar-sec {
+}
+
+.css-5iifl-MuiPaper-root-MuiAppBar-root {
+  background-color: #151515 !important;
+}
+
+.main-logo {
+  width: 80px;
+  height: 80px;
+}
+
+
+
+
+/* Home CSS */
+.home-sec {
+  padding: 30px 0;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 50px;
+}
+
+.banner-slider {
+  min-width: 65%;
+  height: 100%;
+  background-color: #fff;
+  border-width: 1.5px 3px 1.5px 1.5px;
+  border-style: solid;
+  border-color: #e3e6e6;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.banner-advertise {
+  min-width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-advertise div {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-advertise div:first-child {
+  background-color: #fff;
+  border: 1.5px solid #e3e6e6;
+}
+
+.banner-advertise div:last-child {
+  background-color: #fff;
+  border: 1.5px solid #e3e6e6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Season Sale CSS */
+.season-sec {
+  padding: 30px 0;
+}
+
+.season-sec h3 {
+  margin-bottom: 10px;
+}
+
+.season-sec > p {
+  margin-bottom: 30px;
+}
+
+.season-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+
+
+
+/* Footer CSS */
+.footer-sec {
+  background-color: #151515;
+  width: 100%;
+  height: 400px;
 }
