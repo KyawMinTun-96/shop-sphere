@@ -15,6 +15,20 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import DeviceIcon from '@mui/icons-material/Devices';
+import VillaIcon from '@mui/icons-material/Villa';
+import Button from '@mui/material/Button';
+import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -154,6 +168,66 @@ export default function Navbar() {
     </Menu>
   );
 
+
+  const [state, setState] = React.useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false,
+  });
+
+  const icons = [<DeviceIcon/>, <CameraAltIcon/>, <VillaIcon/>, <ShoppingBagIcon/> ];
+
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setState({ ...state, [anchor]: open });
+  };
+
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <ListItem sx={{backgroundColor: '#ffa605', height: 50, width: '100%'}}>
+
+      </ListItem>
+      <List>
+        {['Electronic', 'Computer', 'Smart Home', 'Drafts'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <DeviceIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {
+
+        ['COMPUTERS', 'CAMERAS', 'SMART HOME', 'BAGS', 'SHOES'].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                {icons[index]}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
     <Box sx={{ flexGrow: 1 }} className='navbar-sec'>
       <AppBar position="static" className='navbar-header'>
@@ -164,6 +238,7 @@ export default function Navbar() {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
+            onClick={toggleDrawer('left', true)}
           >
             <MenuIcon />
           </IconButton>
@@ -173,7 +248,9 @@ export default function Navbar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            <img src={require('../assets/images/logo/shop-sphere.png')} alt='log img' className='main-logo'/>
+            <Button  href='/' sx={{padding: 0, width: 0}}>
+              <img src={require('../assets/images/logo/shop-sphere.png')} alt='log img' className='main-logo'/>
+            </Button>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -186,7 +263,7 @@ export default function Navbar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+            <IconButton href='/cart' size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <AddShoppingCartIcon />
               </Badge>
@@ -225,6 +302,13 @@ export default function Navbar() {
             </IconButton>
           </Box>
         </Toolbar>
+        <Drawer
+            anchor={'left'}
+            open={state['left']}
+            onClose={toggleDrawer('left', false)}
+          >
+            {list('left')}
+          </Drawer>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}

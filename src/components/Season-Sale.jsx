@@ -1,87 +1,57 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 function SeasonSale( ) {
+    const seasonSale = [
+        {
+            "id": 1,
+            "image": "shoe1.jpg",
+            "title": "Sneaker Shoe"
+        },
+        {
+            "id": 2,
+            "image": "smart-watch.jpg",
+            "title": "Microphone Devices"
+        },
+        {
+            "id": 3,
+            "image": "microphone.jpg",
+            "title": "Sneaker Shoe"
+        },
+        {
+            "id": 4,
+            "image": "laptopstand.jpg",
+            "title": "Laptop Stand"
+        }
+    ]
+
     return(
         <div className='season-sec'>
-            <h3>Summer Season</h3>
+            <h2>Summer Season</h2>
             <p>Bus 3, get 1 selected items.</p>
 
             <div className='season-body'>
-                <Card sx={{ minHeight: '250px', width: 290 }}>
-                    <CardMedia>
-                        <img
-                        src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                        srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                        loading="lazy"
-                        alt=""
-                        />
-                    </CardMedia>
-                    <CardContent sx={{ justifyContent: 'flex-end' }}>
-                        <Typography
-                        textcolor="neutral.300"
-                        >
-                        California, USA
-                        </Typography>
-                    </CardContent>
-                </Card>
-
-                <Card sx={{ minHeight: '250px', width: 290 }}>
-                    <CardMedia>
-                        <img
-                        src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                        srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                        loading="lazy"
-                        alt=""
-                        />
-                    </CardMedia>
-                    <CardContent sx={{ justifyContent: 'flex-end' }}>
-                        <Typography
-                        textcolor="neutral.300"
-                        >
-                        California, USA
-                        </Typography>
-                    </CardContent>
-                </Card>
-
-                <Card sx={{ minHeight: '250px', width: 290 }}>
-                    <CardMedia>
-                        <img
-                        src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                        srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                        loading="lazy"
-                        alt=""
-                        />
-                    </CardMedia>
-                    <CardContent sx={{ justifyContent: 'flex-end' }}>
-                        <Typography
-                        textcolor="neutral.300"
-                        >
-                        California, USA
-                        </Typography>
-                    </CardContent>
-                </Card>
-
-                <Card sx={{ minHeight: '250px', width: 290 }}>
-                    <CardMedia>
-                        <img
-                        src="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320"
-                        srcSet="https://images.unsplash.com/photo-1542773998-9325f0a098d7?auto=format&fit=crop&w=320&dpr=2 2x"
-                        loading="lazy"
-                        alt=""
-                        />
-                    </CardMedia>
-                    <CardContent sx={{ justifyContent: 'center' }}>
-                        <Typography
-                        textcolor="neutral.300"
-                        >
-                        California, USA
-                        </Typography>
-                    </CardContent>
-                </Card>
+                {
+                    Object.entries(seasonSale).map(([index, img]) => (
+                        <Card key={img.id} sx={{ minHeight: '200px', width: 290, overflow: 'hidden'}}>
+                            <div className='season-image'>
+                                <img
+                                src={require(`../assets/images/others/${img.image}`)}
+                                alt={index}
+                                />
+                            </div>
+                            <CardContent sx={{ justifyContent: 'flex-end', zIndex: 200 }}>
+                                <Typography
+                                textcolor="neutral.300"
+                                >
+                                {img.title}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    ))
+                }
             </div>
         </div>
     )

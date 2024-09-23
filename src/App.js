@@ -6,6 +6,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { ThemeProvider } from '@mui/material/styles';
 import SeasonSale from './components/Season-Sale';
+import Cart from './components/Cart';
+import ProductDetails from './components/ProductDetails';
 import './App.css';
 
 
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/season-sale' element={<SeasonSale/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/product-details' element={<ProductDetails />} />
       </Routes>
       <Footer/>
     </ThemeProvider>
