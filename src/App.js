@@ -17,9 +17,9 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/season-sale' element={<SeasonSale/>}/>
+        <Route path='/season-sale' element={<SeasonSale/>} />
         <Route path='/cart' element={<Cart/>}/>
-        <Route path='/product-details' element={<ProductDetails />} />
+        <Route path='/product-details/:productID' element={<ProductDetails/>} />
       </Routes>
       <Footer/>
     </ThemeProvider>
